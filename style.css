@@ -1,0 +1,666 @@
+html,body,div,form,fieldset,h1,h2,h3,h4,h5,h6,p,blockquote,pre,li,ul,ol
+{
+    font-size: 100%;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    list-style: none;
+}
+table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+th,
+td
+{
+    text-align: left;
+    vertical-align: top;
+}
+img
+{
+    border: 0;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+/*space and color*/
+.container > nav{
+    background-color: rgb(211, 91, 35);
+    flex: 1;
+}
+
+/*display column of the bar*/
+nav .naviga{
+    display: flex;
+    flex-direction: column;
+}
+
+/*display:flex for LI arent needed*/
+nav .naviga li{
+    padding: 7px;
+}
+
+nav .naviga li:hover{
+    background-color: rgb(206, 127, 31);
+}
+
+/*text style links*/
+nav .naviga li a{
+    text-decoration: none;
+    color: white;
+}
+
+/*image on sidebar with background, display and align are for the text*/
+.title{
+    background-image: url("https://live.staticflickr.com/65535/52148924164_6c7a2d74af_m.jpg");
+    background-position: center;
+    background-size: cover;
+
+    height: 12em;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0px -20px 20px -20px #001f9c inset;
+    color: black;
+}
+
+/*click area*/
+#cli{
+    height: 0px;
+    width: 0px;
+}
+
+/*for when it will show*/
+.cliccare{
+    display: flex;
+    flex-direction: column;
+}
+
+/*styling icon and LI*/
+.cliccare + div{
+    flex-direction: row;
+    display: flex;
+}
+
+/*so, we use relative to occupy in the sidebar and pre click is 0 space with transition */
+.cliccato{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 0em;
+    padding: 0px;
+    overflow: hidden;
+  
+    transition: 
+      0.8s height linear,
+      0.6s padding linear;
+}
+
+.cliccato div{
+    background-color: brown;
+}
+  
+.cliccato div a{
+    text-decoration: none;
+    color: white;
+}
+
+/*the height transist after the click*/
+#cli:checked + .cliccato, .cliccato div{
+    height: 10em;
+    padding: 6px;
+}
+
+.cliccato div:hover{
+    background-color: burlywood;
+}
+
+#brownie:hover{
+    background-color: brown;
+}
+
+.cliccato div:hover a{
+    color: brown;
+}
+
+.overato{
+    display: flex;
+    flex-direction: column;
+}
+/*displayed not yet*/
+.overato div{
+    display: none;
+    background-color: rgb(206, 127, 31);
+}
+  
+.overato div a{
+    text-decoration: none;
+    color: brown;
+}
+  
+.overato div:hover{
+    background-color: brown;
+}
+  
+.overato div:hover a{
+    color: wheat;
+}
+
+/*a border shown only when not overed*/
+.over:not(:hover) .toover{
+    border-bottom: 1.2px solid wheat;
+}
+
+/*from display none to display*/
+.over:hover .overato div{
+    display: flex;
+    padding: 10px;
+}
+
+/*content page*/
+.container > .content{
+    flex: 4;
+    background: repeating-linear-gradient(45deg, rgba(196, 51, 15, 0.8) , rgba(255, 199, 14, 0.8) );
+}
+
+/*centered white space for content, considering the structure we just need margin-left*/
+.container .content .canvas{
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom: 1em; 
+    margin-left: 10%;
+
+    text-align: center;
+}
+
+/*so, to work with 2 images it seem we dont need background-size: cover*/
+.intro{
+    background-image: url("https://live.staticflickr.com/65535/52147659132_d406fee190_t.jpg"), url("https://live.staticflickr.com/65535/52148924164_6c7a2d74af_m.jpg");
+    background-position: bottom left, center;
+
+    background-repeat: no-repeat, repeat;
+
+    height: 12em;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0px -20px 20px -20px #001f9c inset;
+    color: white;
+}
+
+.canvas .titolone{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.canvas p{
+    margin: 0.5em 1em;
+    font-size: small;
+    color: black;
+}
+
+/*the use of counter in the div below the images*/
+.completo{
+    display: flex;
+
+    counter-reset: oll;
+}
+
+.completo p:first-child:after{
+    counter-increment: oll;
+    content: "number " counter(oll);
+}
+
+/*image layout*/
+.completo .colonna{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+}
+
+/*mix-blends with the background and transition for the hover effect, width is needed to adapt in flex*/
+.colonna img{
+    width: 100%;
+
+    z-index: 0;
+    transition: transform .2s;
+    mix-blend-mode: luminosity;
+}
+
+/*position relative to get the hovered topping the other images*/
+.colonna img:hover{
+    position: relative;
+    transform: scale(1.5);
+    mix-blend-mode: normal;
+    z-index: 1;
+}
+
+/*single image space*/
+.card{
+    margin: 4px 0px;
+}
+
+.card p{
+    font-size: small;
+}
+
+.card p + p{
+    font-size: x-small;
+}
+
+.card div{
+    text-align: center;
+}
+
+.card div button{
+    border: none;
+    mix-blend-mode: luminosity;
+    padding: 5px 10px;
+    font-size: xx-small;
+    border-radius: 15%;
+}
+
+.card div button:hover{
+    background-color: rgba(250, 140, 25, 0.8);
+}
+
+.card div button:hover a{
+    color: white;
+}
+
+button a{
+    color: brown;
+}
+
+/*row flex of text and carousel*/
+.riga{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0.5em 0.5em;
+}
+
+.riga .colato1{
+    flex: 1;
+    margin: 0em 1em;
+}
+
+.riga .colato1 img{
+    margin: 0em 2.8em;
+}
+
+.riga .colato2{
+    flex: 1;
+    text-align: center;
+    font-size: small;
+    margin: 0em 1em;
+}
+
+.colato2 h2{
+    font-size: larger;
+    font-weight: bold;
+}
+
+/*width and height need to be in proportion to avoid empty spaces, carousel, we cant use %*/
+.contenuto1{
+    display: flex;
+    width: 13.3em;
+    height: 8em;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+/*for the images we dont need position:relative here*/
+.contenuto1 div div{
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    scroll-snap-align: center;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*this is for the arrows in image*/
+.contenuto1 div .allay{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contenuto1::-webkit-scrollbar{
+    height: 8px;
+}
+
+.contenuto1::-webkit-scrollbar-thumb{
+    background: chocolate;
+    border-radius: 25%;
+}
+
+.allay a i{
+    color: brown;
+}
+
+/*we had to set overfow Y to avoid the extra space from relative*/
+.previsto,
+.nexto{
+    position: relative;
+    bottom: 55%;
+    background-color: transparent;
+    width: 1.5rem;
+    height: 1.5rem;
+  
+    border-radius: 50%;
+}
+
+.botonera{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botonera li{
+    background-color: brown;
+    border-radius: 50%;
+    margin: 0px 3px;
+    padding: 0.3em 0.6em;
+}
+
+.botonera a{
+    text-decoration: none;
+    color: wheat;
+    font-size: x-small;
+}
+
+
+/*so, on the bigger side we need bigger to justify without modyfing the window*/
+.bigger{
+    display: flex;
+    justify-content: center;
+}
+
+/*spacing, scroll and overflow*/
+.contenuto11{
+    display: flex;
+
+    width: 20em;
+    height: 25em;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+/*image window margined to get space on smaller*/
+.contenuto11 div div{
+    margin: 0em 2em;
+    justify-content: center;
+
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    scroll-snap-align: center;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*for special images*/
+.contenuto11 div div .rede{
+    height: 63.5%;
+    margin-top: 32%;
+}
+
+/*buttons on side*/
+.contenuto11 div .allay1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contenuto11 div .allay1 i{
+    color: darkred;
+}
+
+/*specific buttons*/
+.previsto1,
+.nexto1{
+    position: relative;
+    bottom: 55%;
+    background-color: transparent;
+    width: 1.5rem;
+    height: 1.5rem;
+  
+    border-radius: 50%;
+}
+
+.contenuto11::-webkit-scrollbar{
+    height: 8px;
+}
+
+.contenuto11::-webkit-scrollbar-thumb{
+    background: chocolate;
+    border-radius: 25%;
+}
+
+.botonera1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botonera1 li{
+    background-color: brown;
+    border-radius: 50%;
+    margin: 5px 3px;
+    padding: 0.3em 0.6em;
+}
+
+.botonera1 a{
+    text-decoration: none;
+    color: wheat;
+    font-size: x-small;
+}
+
+/*finals*/
+.footer{
+    background-color: rgba(175, 51, 15);
+    display: flex;
+    flex-direction: row;
+}
+
+.footer h2, p, li, a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer div{
+    flex: 1;
+}
+
+.footer div{
+    margin: 1em 1em;
+}
+
+.footer div img{
+    width: 18%;
+}
+
+.footer div h2{
+    font-size: larger;
+}
+
+.footer p{
+    font-size: smaller;
+}
+
+.footer .sotto{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 2em 2.2em 2em;
+}
+
+/*to handle elements as rows you dont always need to set flex-direction */
+.footer .sotto li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .sotto li a{
+    font-size: smaller;
+}
+
+.footer .sotto li a:hover{
+    text-decoration: underline;
+}
+
+.listed{
+    display: flex;
+    flex-direction: row;
+}
+
+.listed div{
+    transform: rotate(45deg);
+    border: 1px yellow solid;
+    text-align: center;
+}
+
+.listed div:hover{
+    background-color: burlywood;
+}
+
+.listed div:hover i{
+    color: brown;
+}
+
+.listed div i{
+    transform: rotate(-45deg);
+    padding: 10px;
+}
+
+
+@media screen and (max-width:700px){
+    .title{
+        display: none;
+    }
+    .container{
+        flex-direction: column;
+    }
+    nav .naviga{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    nav .naviga li{
+        font-size: smaller;
+    }
+    .naviga .lati{
+        display: flex;
+    }
+    .cliccato{
+        position: absolute;
+    }
+    /*
+    .cliccato div{
+        display: flex;
+        flex-direction: column;
+    }
+    */
+    #cli:checked + .cliccato, .cliccato{
+        margin-top: 1.3em;
+        margin-left: -0.8em;
+    }
+    .over:not(:hover) .toover{
+        border-bottom: 2px solid brown;
+    }
+    .overato{
+        position: absolute;
+    }
+    .over:hover .overato div{
+        margin-left: -0.6em;
+    }
+    .contenuto1{
+        width: 9.8em;
+        height: 6em;
+    }
+    .riga .colato1{
+        margin: 0em 1em;
+    }    
+    .riga .colato2{
+        margin: 0em 0.3em;
+    }
+    
+}
+
+@media screen and (max-width:400px) {
+    nav .naviga{
+        flex-direction: column;
+        text-align: center;
+    }
+    .naviga .lati{
+        display: flex;
+        flex-direction: column;
+    }
+    .intro{
+        margin-top: 0.5em;
+    }
+    .cliccato{
+        position: relative;
+    }
+    #cli:checked + .cliccato, .cliccato{
+        margin-top: 0em;
+        margin-left: 0em;
+    }
+    .overato{
+        position: relative;
+    }
+    .overato div a{
+        margin: auto;
+    }
+    .overato div:first-child{
+        margin-top: 5px;
+    }
+    .over:not(:hover) .toover{
+        border-bottom: 1.5px solid brown;
+    }
+    .completo{
+        flex-direction: column;
+    }
+    .colonna img{
+        width: 80%;
+    }
+    .riga{
+        flex-direction: column;
+    }
+    .riga .colato1{
+        margin: 0em 1em;
+    }
+    .contenuto11{
+        height: 20em;
+        width: 14em;
+    }
+    .contenuto11 div .allay1{
+        display: none;
+    }
+    .contenuto11 div div .rede{
+        height: 55%;
+    }
+    .footer{
+        flex-direction: column;
+    }
+
+}
